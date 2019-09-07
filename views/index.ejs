@@ -1,0 +1,45 @@
+<%- include top.ejs %>
+	
+  <table class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Livro</th>
+            <th scope="col">Autor</th> 
+            <th scope="col">Excluir</th>
+          </tr>
+      </thead>
+      <tbody>
+    <% docs.forEach(function(book){ %>
+      <tr>
+        <td>
+        <a href="/edit/<%= book._id %>">
+          <%= book.titulo %>
+        </a>
+      </td>
+      <td><%= book.autor %></td>
+      <td>
+        <a href="/delete/<%= book._id %>" class="btn btn-danger" 
+          onclick="return confirm('Tem certeza que deseja excluir?');">
+          X
+        </a>
+      </td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+
+    <hr />
+      <p><%= count %> livros encontrados!</p>
+
+  <nav aria-label="Paginação">
+      <ul class="pagination">
+        <%
+          for(var i=1; i <= qtdPaginas; i++) {
+            %>
+              <li class="page-item"><a class="page-link" href="/<%= i %>"><%= i %></a></li>
+        <% }%>
+      </ul>
+  </nav>
+      <hr />
+      <a href="/new" class="btn btn-primary">Cadastrar livro</a>
+   <%- include bottom.ejs %>

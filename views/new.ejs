@@ -1,0 +1,14 @@
+<%- include top.ejs %>
+
+    <form action="<%= action %>" method="POST">
+      <div class="form-group">
+          <label for="titulo">Livro</label>
+          <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite o título" value="<%= doc.titulo %>" />
+      </div>
+      <div class="form-group">
+          <label for="autor">Autor</label>
+          <input type="autor" class="form-control" id="autor" name="autor" placeholder="Digite o autor" value="<%= doc.autor %>" />
+      </div>
+      <input type="submit" value="Salvar" class="btn btn-primary"/><a href="/" class="btn">Cancelar</a>
+    </form>
+  <%- include bottom.ejs %>
